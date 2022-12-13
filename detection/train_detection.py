@@ -106,15 +106,15 @@ class TrainModel:
 
             self.checkpoint_dir = checkpoint_dir
             self.acc_file = os.path.join(checkpoint_dir, "accuracy.csv")
-            checkpoint = func.find_last_checkpoint(checkpoint_dir)
-            if checkpoint > 0:
+            #checkpoint = func.find_last_checkpoint(checkpoint_dir)
+            """if checkpoint > 0:
                 print("Restoring checkpoint %i.." % checkpoint, flush=True)
                 self.saver.restore(self.sess, os.path.join(checkpoint_dir, 'model_%06d.ckpt' % checkpoint))
                 checkpoint += 1
-            else:
-                init = tf.global_variables_initializer()
-                self.sess.run(init)
-                checkpoint = 0
+            else:"""
+            init = tf.global_variables_initializer()
+            self.sess.run(init)
+            checkpoint = 0
             init = tf.local_variables_initializer()
             self.sess.run(init)
 
