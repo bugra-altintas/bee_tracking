@@ -16,7 +16,7 @@ from utils.func import DS, GPU_NAME, NUM_LAYERS, NUM_FILTERS, CLASSES
 from utils import func
 
 N_PROC = 3
-BATCH_SIZE = 4
+BATCH_SIZE = 6
 
 tf.logging.set_verbosity(tf.logging.ERROR)
 
@@ -33,8 +33,8 @@ def read_all_files():
     return fls
 
 def generate_offsets_for_frame():
-    xs = range(0, func.FR_D, DS)
-    ys = range(0, func.FR_D, DS)
+    xs = range(0, 4096, DS)
+    ys = range(0, 3072, DS)
     return list(itertools.product(xs, ys))
 
 ######## POSTPROCESSING AND SAVING SEGMENTATION RESULTS ############
