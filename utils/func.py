@@ -24,9 +24,8 @@ CLASSES = 3
 def find_last_checkpoint(path):
     files = [f for f in os.listdir(path) if re.search('index$', f)]
     nbs = map(lambda s: int(re.match(r'model_([0-9]+)\.ckpt\.index', s).group(1)), files)
-    if len(files) == 0:
-        return 0
-    return max(nbs)
+    return 0
+    #return max(nbs)
 
 
 def find_devices():
